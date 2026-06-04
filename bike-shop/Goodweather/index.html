@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Good Weather Bicycle & Repair — Opportunity Brief</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Serif+Display&display=swap');
+
+  :root {
+    --black: #0a0a0a;
+    --white: #fafaf8;
+    --gray-light: #e8e6e1;
+    --gray-mid: #999;
+    --gray-dark: #555;
+    --accent: #2d5a27;
+    --accent-light: #e8f0e6;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 48px 40px;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+    border-bottom: 1.5px solid var(--black);
+  }
+
+  .header-left h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+  }
+
+  .header-left .subtitle {
+    font-size: 13px;
+    color: var(--gray-mid);
+    margin-top: 4px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .header-right {
+    text-align: right;
+    font-size: 12.5px;
+    color: var(--gray-dark);
+    line-height: 1.7;
+  }
+
+  .intro {
+    font-size: 15.5px;
+    line-height: 1.75;
+    color: var(--gray-dark);
+    margin-bottom: 40px;
+    max-width: 700px;
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gray-mid);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-bottom: 44px;
+    border: 1px solid var(--gray-light);
+  }
+
+  .metric {
+    padding: 20px 22px;
+    border-right: 1px solid var(--gray-light);
+    border-bottom: 1px solid var(--gray-light);
+  }
+
+  .metric:nth-child(3n) { border-right: none; }
+  .metric:nth-child(n+4) { border-bottom: none; }
+
+  .metric-value {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    color: var(--black);
+  }
+
+  .metric-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--gray-mid);
+    margin-top: 4px;
+    font-weight: 500;
+  }
+
+  .chart-section { margin-bottom: 44px; }
+
+  .chart-container {
+    border: 1px solid var(--gray-light);
+    padding: 28px 24px 16px;
+  }
+
+  .chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 20px;
+  }
+
+  .chart-title { font-size: 14px; font-weight: 500; }
+
+  .chart-note {
+    font-size: 11px;
+    color: var(--gray-mid);
+    margin-top: 14px;
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 44px;
+  }
+
+  .col h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px;
+    font-weight: 400;
+    margin-bottom: 14px;
+  }
+
+  .detail-list { list-style: none; }
+
+  .detail-list li {
+    font-size: 13.5px;
+    line-height: 1.55;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--gray-light);
+    color: var(--gray-dark);
+  }
+
+  .detail-list li:last-child { border-bottom: none; }
+  .detail-list li strong { color: var(--black); font-weight: 500; }
+
+  .included-section { margin-bottom: 44px; }
+
+  .included-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+  }
+
+  .included-item {
+    padding: 16px 20px;
+    border: 1px solid var(--gray-light);
+    margin-top: -1px;
+    margin-left: -1px;
+  }
+
+  .included-item .item-title {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--black);
+    margin-bottom: 3px;
+  }
+
+  .included-item .item-desc {
+    font-size: 12px;
+    color: var(--gray-mid);
+    line-height: 1.5;
+  }
+
+  .space-section {
+    background: var(--accent-light);
+    padding: 28px;
+    margin-bottom: 44px;
+  }
+
+  .space-section h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+
+  .space-section p {
+    font-size: 13.5px;
+    color: var(--gray-dark);
+    line-height: 1.7;
+  }
+
+  .footer-cta {
+    border-top: 1.5px solid var(--black);
+    padding-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .footer-cta .cta-text {
+    font-size: 14px;
+    color: var(--gray-dark);
+    line-height: 1.7;
+    max-width: 480px;
+  }
+
+  .footer-cta .contact {
+    text-align: right;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .footer-cta .contact a {
+    color: var(--black);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gray-mid);
+  }
+
+  .confidential {
+    margin-top: 32px;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--gray-mid);
+    text-align: center;
+  }
+
+  @media print {
+    body { font-size: 12px; }
+    .page { padding: 24px; max-width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="header">
+    <div class="header-left">
+      <h1>Good Weather<br>Bicycle & Repair</h1>
+      <div class="subtitle">Opportunity Brief</div>
+    </div>
+    <div class="header-right">
+      Capitol Hill, Seattle<br>
+      1423 10th Ave<br>
+      Est. 2016 &middot; 10 Years<br>
+      May 2026
+    </div>
+  </div>
+
+  <p class="intro">
+    After ten years on Capitol Hill, Good Weather Bicycle & Repair is looking for its next chapter. The business currently has no employees. The co-founder who ran the shop day-to-day is stepping away, and we're looking for someone to take over the inventory, brand, and whatever other parts of the business make sense for them. We're open to many deal structures and flexible on what's included.
+  </p>
+
+  <div class="section-label">At a Glance</div>
+  <div class="metrics-grid">
+    <div class="metric">
+      <div class="metric-value">$959K</div>
+      <div class="metric-label">2025 Gross Revenue</div>
+    </div>
+    <div class="metric">
+      <div class="metric-value">37%</div>
+      <div class="metric-label">Gross Margin</div>
+    </div>
+    <div class="metric">
+      <div class="metric-value">~$105K</div>
+      <div class="metric-label">Inventory (Retail)</div>
+    </div>
+    <div class="metric">
+      <div class="metric-value">4,200+</div>
+      <div class="metric-label">Shopify Customers</div>
+    </div>
+    <div class="metric">
+      <div class="metric-value">~870</div>
+      <div class="metric-label">Service Jobs (9 Mo.)</div>
+    </div>
+    <div class="metric">
+      <div class="metric-value">10 Yrs</div>
+      <div class="metric-label">In Business</div>
+    </div>
+  </div>
+
+  <!-- 2026 Revenue Chart -->
+  <div class="chart-section">
+    <div class="section-label">2026 Monthly Gross Revenue</div>
+    <div class="chart-container">
+      <div class="chart-header">
+        <div class="chart-title">January through April 2026 (Shopify)</div>
+      </div>
+      <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+        <!-- Y axis: max ~75K, scale: 0=y180, 75K=y20 -->
+        <text x="2" y="24" font-size="9.5" fill="#999" font-family="DM Sans,sans-serif">$75K</text>
+        <text x="2" y="64" font-size="9.5" fill="#999" font-family="DM Sans,sans-serif">$56K</text>
+        <text x="2" y="104" font-size="9.5" fill="#999" font-family="DM Sans,sans-serif">$37K</text>
+        <text x="2" y="144" font-size="9.5" fill="#999" font-family="DM Sans,sans-serif">$19K</text>
+        <text x="2" y="182" font-size="9.5" fill="#999" font-family="DM Sans,sans-serif">$0</text>
+
+        <line x1="40" y1="20" x2="690" y2="20" stroke="#e8e6e1" stroke-width="0.5"/>
+        <line x1="40" y1="60" x2="690" y2="60" stroke="#e8e6e1" stroke-width="0.5"/>
+        <line x1="40" y1="100" x2="690" y2="100" stroke="#e8e6e1" stroke-width="0.5"/>
+        <line x1="40" y1="140" x2="690" y2="140" stroke="#e8e6e1" stroke-width="0.5"/>
+        <line x1="40" y1="180" x2="690" y2="180" stroke="#e8e6e1" stroke-width="0.5"/>
+
+        <!-- fn: h = (val/75000)*160, y = 180 - h -->
+
+        <!-- Jan 26: 47900 -> h=102.2, y=77.8 -->
+        <rect x="72" y="78" width="120" height="102" fill="var(--accent)" rx="2"/>
+        <text x="132" y="72" text-anchor="middle" font-size="12" fill="var(--black)" font-family="DM Sans,sans-serif" font-weight="500">$47,900</text>
+        <text x="132" y="196" text-anchor="middle" font-size="11" fill="#999" font-family="DM Sans,sans-serif">Jan</text>
+
+        <!-- Feb 26: 39701 -> h=84.7, y=95.3 -->
+        <rect x="218" y="95" width="120" height="85" fill="var(--accent)" rx="2"/>
+        <text x="278" y="89" text-anchor="middle" font-size="12" fill="var(--black)" font-family="DM Sans,sans-serif" font-weight="500">$39,701</text>
+        <text x="278" y="196" text-anchor="middle" font-size="11" fill="#999" font-family="DM Sans,sans-serif">Feb</text>
+
+        <!-- Mar 26: 58794 -> h=125.4, y=54.6 -->
+        <rect x="364" y="55" width="120" height="125" fill="var(--accent)" rx="2"/>
+        <text x="424" y="49" text-anchor="middle" font-size="12" fill="var(--black)" font-family="DM Sans,sans-serif" font-weight="500">$58,794</text>
+        <text x="424" y="196" text-anchor="middle" font-size="11" fill="#999" font-family="DM Sans,sans-serif">Mar</text>
+
+        <!-- Apr 26: 68577 -> h=146.3, y=33.7 -->
+        <rect x="510" y="34" width="120" height="146" fill="var(--accent)" rx="2"/>
+        <text x="570" y="28" text-anchor="middle" font-size="12" fill="var(--black)" font-family="DM Sans,sans-serif" font-weight="500">$68,577</text>
+        <text x="570" y="196" text-anchor="middle" font-size="11" fill="#999" font-family="DM Sans,sans-serif">Apr</text>
+      </svg>
+      <div class="chart-note">
+        Shopify became the primary POS in October 2025. Revenue trending upward heading into peak spring/summer season. April 2025 and August 2025 were the two highest months historically.
+      </div>
+    </div>
+  </div>
+
+  <!-- Two column details -->
+  <div class="two-col">
+    <div class="col">
+      <h3>Service & Retail</h3>
+      <ul class="detail-list">
+        <li><strong>868 service jobs booked</strong> over the last 9 months through the shop's scheduling platform. Tune-ups account for about 40% of jobs, quick fixes and minor repairs another 30%, with major repairs, custom projects, and misc labor making up the rest.</li>
+        <li><strong>Service drives retail.</strong> Most parts and accessory purchases happen alongside a service visit. A customer brings in a bike for a tune and leaves with a new chain, tires, lube, or saddle. The two revenue streams are deeply linked.</li>
+        <li><strong>Online retail</strong> ships nationally via Shopify with free shipping over $150. Complete bikes from Orbea, Omnium, Surly, Salsa, and the house Olallie line.</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3>2025 Financials</h3>
+      <ul class="detail-list">
+        <li><strong>$959K</strong> gross revenue (all platforms)</li>
+        <li><strong>$874K</strong> net revenue (net of sales tax)</li>
+        <li><strong>$323K</strong> gross profit at 37% margin</li>
+        <li>The business currently has no employees. The previous operator ran the shop solo for the last several months. Staffing is entirely up to the next operator.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- What's included -->
+  <div class="included-section">
+    <div class="section-label">What's Included</div>
+    <div class="included-grid">
+      <div class="included-item">
+        <div class="item-title">The Name & Brand</div>
+        <div class="item-desc">Good Weather Bicycle & Repair. Ten years of recognition in Seattle's cycling community. Social accounts, Shopify store, and web presence included.</div>
+      </div>
+      <div class="included-item">
+        <div class="item-title">Inventory</div>
+        <div class="item-desc">~$105K in retail inventory (bikes, parts, accessories, wheels) from established dealers. Good Weather branded hubs and wheels included. Option to take over existing Olallie steel frames, which can be painted to spec by the original builder.</div>
+      </div>
+      <div class="included-item">
+        <div class="item-title">Tools & Fixtures</div>
+        <div class="item-desc">3 full mechanic setups including Park Double electric stands, EVT stands/heads, presses, pullers, and specialty tools. A detailed inventory list is being compiled and will be available within the week.</div>
+      </div>
+      <div class="included-item">
+        <div class="item-title">Dealer Relationships</div>
+        <div class="item-desc">Orbea, Omnium, Surly, Salsa, Specialized, and others. All transferable to the new operator.</div>
+      </div>
+      <div class="included-item">
+        <div class="item-title">Digital Presence</div>
+        <div class="item-desc">5,800+ Instagram followers. Active Shopify storefront with 4,200+ customers. 272-member community ride group. Established SEO and web presence.</div>
+      </div>
+      <div class="included-item">
+        <div class="item-title">Customer Base</div>
+        <div class="item-desc">4,200+ customers in the Shopify database. 868 service jobs booked in the last 9 months alone. A decade of relationships on Capitol Hill.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Space -->
+  <div class="space-section">
+    <h3>The Space</h3>
+    <p>
+      The shop is at 1423 10th Ave in Capitol Hill, down the ramp at Chophouse Row. The current footprint is approximately 2,400 sq ft at $4,800 to $5,400/month including utilities. The landlord is open to negotiating a new lease directly with a new operator for the full space or a smaller ~800 sq ft portion. Tailwind Cafe is next door with a signed lease, providing built-in foot traffic from the cycling community.
+    </p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer-cta">
+    <div class="cta-text">
+      We're flexible on what this looks like. The inventory, the brand, the tools, the space, the dealer relationships, the frames. Take all of it or take pieces. We want to find the right fit and we're happy to talk through what makes sense.
+    </div>
+    <div class="contact">
+      <strong>Brandon & Jason</strong><br>
+      <a href="mailto:hello@goodweatherinseattle.com">hello@goodweatherinseattle.com</a><br>
+      goodweatherinseattle.com
+    </div>
+  </div>
+
+  <div class="confidential">Confidential &middot; Prepared May 2026</div>
+
+</div>
+
+</body>
+</html>
